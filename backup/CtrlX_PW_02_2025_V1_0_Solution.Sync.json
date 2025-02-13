@@ -1,0 +1,50 @@
+{
+  "IsSynced": false,
+  "SyncMode": 0,
+  "InSyncWithRuntime": true,
+  "ApplicationType": "plc",
+  "Configuration": "appdata",
+  "Solution": null,
+  "ControllerGuid": "c8b7c6a6-66b3-429e-9f40-b2a3021c8fcb",
+  "LastChange": 638748700971774772,
+  "MachineName": "VS-W08517",
+  "UserName": "christop.truffer",
+  "ProjectCompleteFilename": "C:\\Users\\christop.truffer\\git_Trc\\S4 Autb Automation Base\\autb-lab-02_2025\\PracticalWork_02_Solution\\CtrlX_PW_02_2025_V1_0_Solution.project",
+  "CompilerVersion": {
+    "Major": 3,
+    "Minor": 5,
+    "Build": 19,
+    "Revision": 60,
+    "MajorRevision": 0,
+    "MinorRevision": 60
+  },
+  "OwnVersion": {
+    "Major": 1,
+    "Minor": 2,
+    "Build": 0,
+    "Revision": 0,
+    "MajorRevision": 0,
+    "MinorRevision": 0
+  },
+  "ProductAdditionalFolder": "Default",
+  "ProductProfileName": "ctrlX PLC 1.20.7",
+  "ProductId": "ctrlx-works",
+  "ProductVersion": "1.20.11",
+  "ProductVersionText": "WRK-V-0120.11",
+  "SyncModeSave": false,
+  "SyncModeDownload": false,
+  "SyncModeAsk": false,
+  "SyncAfterBootApplication": false,
+  "UserMetaData": {
+    "VS-W08517:christop.truffer": {
+      "MachineName": "VS-W08517",
+      "UserName": "christop.truffer",
+      "ProjectCompleteFilename": "C:\\Users\\christop.truffer\\git_Trc\\S4 Autb Automation Base\\autb-lab-02_2025\\PracticalWork_02_Solution\\CtrlX_PW_02_2025_V1_0_Solution.project"
+    }
+  },
+  "CompileinfoChecksum": null,
+  "SyncDescription": false,
+  "DeviceId": "1001 0080",
+  "DeviceVersion": "1.20.120.0",
+  "UseIoHierachy": true
+}

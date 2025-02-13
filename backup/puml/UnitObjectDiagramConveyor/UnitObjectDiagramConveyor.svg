@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="148px" preserveAspectRatio="none" style="width:417px;height:148px;background:#FFFFFF;" version="1.1" viewBox="0 0 417 148" width="417px" zoomAndPan="magnify"><defs/><g><g id="elem_emConveyor"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="94" x="150" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="157" y="23.5332">emConveyor</text><line style="stroke:#181818;stroke-width:0.5;" x1="151" x2="243" y1="28.6094" y2="28.6094"/></g><g id="elem_cm01"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="48" x="7" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="14" y="121.5332">cm01</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="54" y1="126.6094" y2="126.6094"/></g><g id="elem_cm02"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="48" x="90" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="97" y="121.5332">cm02</text><line style="stroke:#181818;stroke-width:0.5;" x1="91" x2="137" y1="126.6094" y2="126.6094"/></g><g id="elem_cm03"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="48" x="173" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="180" y="121.5332">cm03</text><line style="stroke:#181818;stroke-width:0.5;" x1="174" x2="220" y1="126.6094" y2="126.6094"/></g><g id="elem_cmOut"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="55" x="256.5" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="263.5" y="121.5332">cmOut</text><line style="stroke:#181818;stroke-width:0.5;" x1="257.5" x2="310.5" y1="126.6094" y2="126.6094"/></g><g id="elem_cmDrive"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="65" x="346.5" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="353.5" y="121.5332">cmDrive</text><line style="stroke:#181818;stroke-width:0.5;" x1="347.5" x2="410.5" y1="126.6094" y2="126.6094"/></g><!--MD5=[33fc8bd55f3ba702e44b5cc55ace4498]
+reverse link emConveyor to cm01--><g id="link_emConveyor_cm01"><path codeLine="10" d="M154.25,51.72 C122.74,69.95 81,94.08 55.09,109.07 " fill="none" id="emConveyor-backto-cm01" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="165.78,45.06,158.5836,44.6002,155.3913,51.0662,162.5877,51.526,165.78,45.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[91b2946b84c8c50345b1ef0afe272541]
+reverse link emConveyor to cm02--><g id="link_emConveyor_cm02"><path codeLine="11" d="M172.82,54.97 C158.97,70.99 141.98,90.64 129.82,104.7 " fill="none" id="emConveyor-backto-cm02" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="181.39,45.06,174.4411,46.9867,173.5469,54.1422,180.4958,52.2155,181.39,45.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[090d5917e55228d4cb920a3d293efc98]
+reverse link emConveyor to cm03--><g id="link_emConveyor_cm03"><path codeLine="12" d="M197,58.22 C197,73.59 197,91.58 197,104.7 " fill="none" id="emConveyor-backto-cm03" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="197,45.06,193,51.06,197,57.06,201,51.06,197,45.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9712184ceb89c81f17af29e1930ad283]
+reverse link emConveyor to cmOut--><g id="link_emConveyor_cmOut"><path codeLine="13" d="M222.34,54.97 C236.87,70.99 254.68,90.64 267.41,104.7 " fill="none" id="emConveyor-backto-cmOut" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="213.36,45.06,214.4268,52.1918,221.4203,53.95,220.3535,46.8182,213.36,45.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ac2950dc237bc46a16b7ea6ceb111c4b]
+reverse link emConveyor to cmDrive--><g id="link_emConveyor_cmDrive"><path codeLine="14" d="M243.06,51.29 C275.32,68.31 317.66,90.64 346.45,105.83 " fill="none" id="emConveyor-backto-cmDrive" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="231.23,45.06,234.6746,51.3952,241.8473,50.6522,238.4027,44.317,231.23,45.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[19176c1f56d75589948b2aeb6854be39]
+@startuml
+object emConveyor
+
+object cm01
+object cm02
+object cm03
+object cmOut
+object cmDrive
+
+emConveyor *- - cm01
+emConveyor *- - cm02
+emConveyor *- - cm03
+emConveyor *- - cmOut
+emConveyor *- - cmDrive
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

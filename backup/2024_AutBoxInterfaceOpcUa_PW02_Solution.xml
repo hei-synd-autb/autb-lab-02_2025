@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="Rexroth" productName="ctrlX PLC Engineering" productVersion="ctrlX PLC 1.20.7" creationDateTime="2025-02-11T09:05:17.5730649" />
+  <contentHeader name="AutBoxInterfaceOpcUa_PW02_Solution.project" modificationDateTime="2024-03-01T13:41:48">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation />
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="ST_StationConveyor">
+        <baseType>
+          <struct>
+            <variable name="bButton">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bLed">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bSensor">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>c7f00970-6324-4a16-835a-10027e6d75ee</ObjectId>
+          </data>
+        </addData>
+        <documentation>
+          <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_01
+	Author:		Cedric Lenoir
+	Date:		2023 October 11
+	
+	Summary:	List of of components for a station of a conveyor.
+</xhtml>
+        </documentation>
+      </dataType>
+      <dataType name="ST_MotorConveyor">
+        <baseType>
+          <struct>
+            <variable name="bK_ActivatePositiveDirection">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="bK_ActivateNegativeDirection">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>608b4977-c5d4-4ae5-8316-1b969fa50fd3</ObjectId>
+          </data>
+        </addData>
+        <documentation>
+          <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_01
+	Author:		Cedric Lenoir
+	Date:		2023 October 11
+	
+	Summary:	List of of components for a motor of a conveyor.
+</xhtml>
+        </documentation>
+      </dataType>
+      <dataType name="ST_Conveyor">
+        <baseType>
+          <struct>
+            <variable name="cm01">
+              <type>
+                <derived name="ST_StationConveyor" />
+              </type>
+            </variable>
+            <variable name="cm02">
+              <type>
+                <derived name="ST_StationConveyor" />
+              </type>
+            </variable>
+            <variable name="cm03">
+              <type>
+                <derived name="ST_StationConveyor" />
+              </type>
+            </variable>
+            <variable name="cmOut">
+              <type>
+                <derived name="ST_OutputConveyor" />
+              </type>
+            </variable>
+            <variable name="cmDrive">
+              <type>
+                <derived name="ST_MotorConveyor" />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ac819499-d6b0-43b8-be57-e18326f16d99</ObjectId>
+          </data>
+        </addData>
+        <documentation>
+          <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_02
+	Author:		Cedric Lenoir
+	Date:		2024 January 16
+	
+	Summary:	Main structure for conveyor.
+</xhtml>
+        </documentation>
+      </dataType>
+      <dataType name="ST_OutputConveyor">
+        <baseType>
+          <struct>
+            <variable name="bBuzzer">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/datatypeinheritance" handleUnknown="implementation">
+            <Inheritance>
+              <Extends>ST_StationConveyor</Extends>
+            </Inheritance>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>6d563f34-5cbe-4ab5-9182-b0cac9f384c2</ObjectId>
+          </data>
+        </addData>
+        <documentation>
+          <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_01
+	Author:		Cedric Lenoir
+	Date:		2024 January 14
+	
+	Summary:	ST_OutputConveyor extends ST_StationConveyor.
+</xhtml>
+        </documentation>
+      </dataType>
+    </dataTypes>
+    <pous>
+      <pou name="PLC_PRG" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="diMyLoop">
+              <type>
+                <DINT />
+              </type>
+            </variable>
+            <variable name="emConveyor">
+              <type>
+                <derived name="ST_Conveyor" />
+              </type>
+            </variable>
+            <variable name="testMode">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="fbStationOne">
+              <type>
+                <derived name="FB_Station" />
+              </type>
+            </variable>
+            <variable name="fbStationTwo">
+              <type>
+                <derived name="FB_Station" />
+              </type>
+            </variable>
+            <variable name="fbStationThree">
+              <type>
+                <derived name="FB_Station" />
+              </type>
+            </variable>
+            <variable name="fbOutStation">
+              <type>
+                <derived name="FB_OutStation" />
+              </type>
+            </variable>
+            <variable name="fbDrive">
+              <type>
+                <derived name="FB_Drive" />
+              </type>
+            </variable>
+          </localVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_02
+	Author:		Cedric Lenoir
+	Date:		2024 January 16
+	
+	Summary:	Main program for Pracatival Work 02.
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">diMyLoop := diMyLoop + 1;
+
+//
+// Manage inputs
+//
+// cm01
+emConveyor.cm01.bButton := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_0;
+emConveyor.cm01.bSensor := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_4;	//  UA_DigitalInput_32_Input_0_4;
+// cm02
+emConveyor.cm02.bButton := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_1;
+emConveyor.cm02.bSensor := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_5;
+// cm03
+emConveyor.cm03.bButton := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_2;
+emConveyor.cm03.bSensor := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_6;
+// cmOut
+emConveyor.cmOut.bButton := GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_3;
+emConveyor.cmOut.bSensor := NOT GVL_Abox.uaAboxInterface.uaDigitalIn.Input_0_7;	// Signal inverted
+
+// To be tested
+// FC_GetInput(ioHwInterface := GVL_Abox,
+//             ioPhysicalControl := emConveyor);
+
+fbStationOne(Enable := NOT testMode, 
+          ioStation := emConveyor.cm01);
+fbStationTwo(Enable := NOT testMode, 
+          ioStation := emConveyor.cm02);
+fbStationThree(Enable := NOT testMode, 
+          ioStation := emConveyor.cm03);
+		  
+fbOutStation(Enable := NOT testMode, 
+          ioStation := emConveyor.cmOut);
+
+		  
+fbDrive(Enable := NOT testMode,
+		ioDrive := emConveyor.cmDrive,
+        stationOne := fbStationOne,
+        stationTwo := fbStationTwo,
+        stationThree := fbStationThree,
+        stationOut := fbOutStation);		  
+
+//
+// Manage outputs
+//
+// cm01
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_0 := emConveyor.cm01.bLed;
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_1 := emConveyor.cm02.bLed;
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_2 := emConveyor.cm03.bLed;
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_3 := emConveyor.cmOut.bLed;
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_4 := emConveyor.cmDrive.bK_ActivatePositiveDirection;
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_5 := emConveyor.cmDrive.bK_ActivateNegativeDirection;
+GVL_Abox.uaAboxInterface.uaDigitalOut.Output_0_6 := emConveyor.cmOut.bBuzzer;
+
+// To be tested
+// FC_SetOutput(ioHwInterface := GVL_Abox,
+//              ioPhysicalControl := emConveyor);</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>c2dc53b3-d628-43b8-bef2-19f7c35ca092</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="FB_Station" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Enable">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </inputVars>
+          <inOutVars>
+            <variable name="ioStation">
+              <type>
+                <derived name="ST_StationConveyor" />
+              </type>
+            </variable>
+          </inOutVars>
+          <outputVars>
+            <variable name="diCounter">
+              <type>
+                <DINT />
+              </type>
+            </variable>
+            <variable name="stop">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="release">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="rTrigIn">
+              <type>
+                <derived name="R_TRIG" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Used to count the number of inputs in station</xhtml>
+              </documentation>
+            </variable>
+            <variable name="tonResetCounter">
+              <type>
+                <derived name="TON" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Reset Counte if TON for more that 2 seconds</xhtml>
+              </documentation>
+            </variable>
+          </localVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_02
+	Author:		Cedric Lenoir
+	Date:		2024 January 16
+	
+	Summary:	Manage One station for a conveyor.
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">IF Enable THEN
+	rTrigIn(CLK := ioStation.bSensor);
+	
+	IF rTrigIn.Q THEN
+		diCounter := diCounter + 1;
+		release := FALSE;
+		stop := TRUE;
+	END_IF
+	IF ioStation.bButton THEN
+		release := TRUE;
+		stop := FALSE;
+	END_IF
+	ioStation.bLed := stop;
+	
+	tonResetCounter(IN := ioStation.bButton,
+					PT := T#2S);
+					
+	IF tonResetCounter.Q THEN
+		diCounter := 0;
+	END_IF
+END_IF</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ed2ccc5d-d177-4fd4-8b38-7c524647bf23</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="FB_OutStation" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Enable">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </inputVars>
+          <inOutVars>
+            <variable name="ioStation">
+              <type>
+                <derived name="ST_OutputConveyor" />
+              </type>
+            </variable>
+          </inOutVars>
+          <outputVars>
+            <variable name="diCounter">
+              <type>
+                <DINT />
+              </type>
+            </variable>
+            <variable name="stop">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="release">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="rTrigIn">
+              <type>
+                <derived name="R_TRIG" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Used to count the number of inputs in station</xhtml>
+              </documentation>
+            </variable>
+            <variable name="tonResetCounter">
+              <type>
+                <derived name="TON" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> Reset Counte if TON for more that 2 seconds</xhtml>
+              </documentation>
+            </variable>
+          </localVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_02
+	Author:		Cedric Lenoir
+	Date:		2024 January 16
+	
+	Summary:	Manage One station for a conveyor.
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">IF Enable THEN
+	rTrigIn(CLK := ioStation.bSensor);
+	
+	IF rTrigIn.Q THEN
+		diCounter := diCounter + 1;
+		release := FALSE;
+		stop := TRUE;
+	END_IF
+	IF ioStation.bButton THEN
+		release := TRUE;
+		stop := FALSE;
+	END_IF
+	ioStation.bLed := stop;
+	
+	tonResetCounter(IN := ioStation.bButton,
+					PT := T#2S);
+					
+	IF tonResetCounter.Q THEN
+		diCounter := 0;
+	END_IF
+	
+	ioStation.bBuzzer := stop;
+END_IF</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>f2e323e3-2bbf-44ce-b154-38c8cf8d62f7</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="FB_Drive" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Enable">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </inputVars>
+          <inOutVars>
+            <variable name="ioDrive">
+              <type>
+                <derived name="ST_MotorConveyor" />
+              </type>
+            </variable>
+            <variable name="stationOne">
+              <type>
+                <derived name="FB_Station" />
+              </type>
+            </variable>
+            <variable name="stationTwo">
+              <type>
+                <derived name="FB_Station" />
+              </type>
+            </variable>
+            <variable name="stationThree">
+              <type>
+                <derived name="FB_Station" />
+              </type>
+            </variable>
+            <variable name="stationOut">
+              <type>
+                <derived name="FB_OutStation" />
+              </type>
+            </variable>
+          </inOutVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_02
+	Author:		Cedric Lenoir
+	Date:		2024 January 16
+	
+	Summary:	Manage drive for motor conveyor.
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">IF Enable THEN
+	ioDrive.bK_ActivatePositiveDirection := NOT(stationOne.stop   OR 
+                                                stationTwo.stop   OR
+                                                stationThree.stop OR
+                                                stationOut.stop);
+END_IF</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>8f588275-0c9e-4bce-b494-70fc5c9c7069</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="FC_GetInput" pouType="function">
+        <interface>
+          <returnType>
+            <BOOL />
+          </returnType>
+          <inOutVars>
+            <variable name="ioHwInterface">
+              <type>
+                <derived name="UA_AboxInterface" />
+              </type>
+            </variable>
+            <variable name="ioPhysicalControl">
+              <type>
+                <derived name="ST_Conveyor" />
+              </type>
+            </variable>
+          </inOutVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_01
+	Author:		Cedric Lenoir
+	Date:		2023 October 11
+	
+	Summary:	Get Physical Inputs.
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">//
+// Manage inputs
+//
+// cm01
+ioPhysicalControl.cm01.bButton := ioHwInterface.uaDigitalIn.Input_0_0;
+ioPhysicalControl.cm01.bSensor := ioHwInterface.uaDigitalIn.Input_0_4;	//  UA_DigitalInput_32_Input_0_4;
+// cm02
+ioPhysicalControl.cm02.bButton := ioHwInterface.uaDigitalIn.Input_0_1;
+ioPhysicalControl.cm02.bSensor := ioHwInterface.uaDigitalIn.Input_0_5;
+// cm03
+ioPhysicalControl.cm03.bButton := ioHwInterface.uaDigitalIn.Input_0_2;
+ioPhysicalControl.cm03.bSensor := ioHwInterface.uaDigitalIn.Input_0_6;
+// cmOut
+ioPhysicalControl.cmOut.bButton := ioHwInterface.uaDigitalIn.Input_0_3;
+ioPhysicalControl.cmOut.bSensor := NOT ioHwInterface.uaDigitalIn.Input_0_7;	// Signal inverted</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9a7e8f77-cf7c-4eba-b933-a95543098a59</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="FC_SetOutput" pouType="function">
+        <interface>
+          <returnType>
+            <BOOL />
+          </returnType>
+          <inOutVars>
+            <variable name="ioHwInterface">
+              <type>
+                <derived name="UA_AboxInterface" />
+              </type>
+            </variable>
+            <variable name="ioPhysicalControl">
+              <type>
+                <derived name="ST_Conveyor" />
+              </type>
+            </variable>
+          </inOutVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	www.hevs.ch
+	Institut Systemes Industriels
+	Project: 	Projet No: PW_01
+	Author:		Cedric Lenoir
+	Date:		2024 January 11
+	
+	Summary:	Set Physical Inputs.
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">ioHwInterface.uaDigitalOut.Output_0_0 := ioPhysicalControl.cm01.bLed;
+ioHwInterface.uaDigitalOut.Output_0_1 := ioPhysicalControl.cm02.bLed;
+ioHwInterface.uaDigitalOut.Output_0_2 := ioPhysicalControl.cm03.bLed;
+ioHwInterface.uaDigitalOut.Output_0_3 := ioPhysicalControl.cmOut.bLed;
+ioHwInterface.uaDigitalOut.Output_0_4 := ioPhysicalControl.cmDrive.bK_ActivatePositiveDirection;
+ioHwInterface.uaDigitalOut.Output_0_5 := ioPhysicalControl.cmDrive.bK_ActivateNegativeDirection;
+ioHwInterface.uaDigitalOut.Output_0_6 := ioPhysicalControl.cmOut.bBuzzer;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>885e9fca-7e54-403e-823c-ca54cc45f4d1</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+      <globalVars name="GVL_Unit">
+        <variable name="myConveyor">
+          <type>
+            <derived name="ST_Conveyor" />
+          </type>
+        </variable>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/attributes" handleUnknown="implementation">
+            <Attributes>
+              <Attribute Name="qualified_only" Value="" />
+            </Attributes>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>de1529e7-49a1-4b57-9a73-9fb933678f61</ObjectId>
+          </data>
+        </addData>
+      </globalVars>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="PLC_PRG" ObjectId="c2dc53b3-d628-43b8-bef2-19f7c35ca092" />
+        <Folder Name="PW_DUT">
+          <Object Name="ST_StationConveyor" ObjectId="c7f00970-6324-4a16-835a-10027e6d75ee" />
+          <Object Name="ST_MotorConveyor" ObjectId="608b4977-c5d4-4ae5-8316-1b969fa50fd3" />
+          <Object Name="ST_Conveyor" ObjectId="ac819499-d6b0-43b8-be57-e18326f16d99" />
+          <Object Name="ST_OutputConveyor" ObjectId="6d563f34-5cbe-4ab5-9182-b0cac9f384c2" />
+        </Folder>
+        <Folder Name="GVLs">
+          <Object Name="GVL_Unit" ObjectId="de1529e7-49a1-4b57-9a73-9fb933678f61" />
+        </Folder>
+        <Folder Name="PW_POU">
+          <Object Name="FB_Station" ObjectId="ed2ccc5d-d177-4fd4-8b38-7c524647bf23" />
+          <Object Name="FB_OutStation" ObjectId="f2e323e3-2bbf-44ce-b154-38c8cf8d62f7" />
+          <Object Name="FB_Drive" ObjectId="8f588275-0c9e-4bce-b494-70fc5c9c7069" />
+          <Object Name="FC_GetInput" ObjectId="9a7e8f77-cf7c-4eba-b933-a95543098a59" />
+          <Object Name="FC_SetOutput" ObjectId="885e9fca-7e54-403e-823c-ca54cc45f4d1" />
+        </Folder>
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

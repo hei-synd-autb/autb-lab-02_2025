@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="246px" preserveAspectRatio="none" style="width:148px;height:246px;background:#FFFFFF;" version="1.1" viewBox="0 0 148 246" width="148px" zoomAndPan="magnify"><defs/><g><g id="elem_Unit"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="38" x="55.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="24" x="62.5" y="23.5332">Unit</text><line style="stroke:#181818;stroke-width:0.5;" x1="56.5" x2="92.5" y1="28.6094" y2="28.6094"/></g><g id="elem_Equipment_Module"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="135" x="7" y="105"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="14" y="121.5332">Equipment_Module</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="141" y1="126.6094" y2="126.6094"/></g><g id="elem_Control_Module"><rect fill="#F1F1F1" height="37.6094" style="stroke:#181818;stroke-width:0.5;" width="114" x="17.5" y="203"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="24.5" y="219.5332">Control_Module</text><line style="stroke:#181818;stroke-width:0.5;" x1="18.5" x2="130.5" y1="224.6094" y2="224.6094"/></g><!--MD5=[090f277f965c1b83b1cb66e5d4fddd2b]
+reverse link Unit to Equipment_Module--><g id="link_Unit_Equipment_Module"><path codeLine="8" d="M74.5,58.22 C74.5,73.59 74.5,91.58 74.5,104.7 " fill="none" id="Unit-backto-Equipment_Module" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="74.5,45.06,70.5,51.06,74.5,57.06,78.5,51.06,74.5,45.06" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="51.5625" y="94.2848">1..*</text></g><!--MD5=[697d06e7505dae953dd0170cdfee86d2]
+reverse link Equipment_Module to Control_Module--><g id="link_Equipment_Module_Control_Module"><path codeLine="9" d="M74.5,156.22 C74.5,171.59 74.5,189.58 74.5,202.7 " fill="none" id="Equipment_Module-backto-Control_Module" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="74.5,143.06,70.5,149.06,74.5,155.06,78.5,149.06,74.5,143.06" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="51.5625" y="192.2848">1..*</text></g><!--MD5=[47d260cd170809295c6de5d7b4d59c3d]
+@startuml
+object Unit
+
+object Equipment_Module
+
+object Control_Module
+
+Unit *- - "1..*" Equipment_Module
+Equipment_Module *- - "1..*" Control_Module
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

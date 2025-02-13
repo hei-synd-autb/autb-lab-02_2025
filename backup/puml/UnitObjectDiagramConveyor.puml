@@ -1,0 +1,16 @@
+ @startuml
+object emConveyor
+
+object cm01
+object cm02
+object cm03
+object cmOut
+object cmDrive
+
+emConveyor *-- cm01
+emConveyor *-- cm02
+emConveyor *-- cm03
+emConveyor *-- cmOut
+emConveyor *-- cmDrive
+
+@enduml

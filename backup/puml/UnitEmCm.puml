@@ -1,0 +1,11 @@
+ @startuml
+object Unit
+
+object Equipment_Module
+
+object Control_Module
+
+Unit *-- "1..*" Equipment_Module
+Equipment_Module *-- "1..*" Control_Module
+
+@enduml
