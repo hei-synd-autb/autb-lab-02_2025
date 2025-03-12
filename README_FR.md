@@ -88,7 +88,11 @@ classDiagram
         bK_ActivatePositiveDirection: BOOL
         bK_ActivateNegativeDirection: BOOL
     }
-    
+
+    ST_Conveyor *-- ST_StationConveyor : 3
+    ST_Conveyor *-- ST_StationOutput
+    ST_Conveyor *-- ST_MotorConveyor
+
     ST_StationConveyor <|-- ST_StationOutput
 ```
 
