@@ -297,12 +297,17 @@ Pour écrire  -->  [Ctrl + F7]
 
 
 ```mermaid
+
+---
+title: EM_Conveyor
+---
+
 classDiagram
-    emConveyor *-- cm01
-    emConveyor *-- cm02
-    emConveyor *-- cm03
-    emConveyor *-- cmOut
-    emConveyor *-- cmDrive
+    EM_Conveyor *-- CM_01
+    EM_Conveyor *-- CM_02
+    EM_Conveyor *-- CM_03
+    EM_Conveyor *-- CM_Out
+    EM_Conveyor *-- CM_Drive
 
 ```
 <figcaption>Diagramme d'objet du convoyeur</figcaption>
@@ -351,14 +356,29 @@ Programmer les différents **Control Modules** en respectant les URS (User Reque
 - Si l'on appuie sur le bouton bButton, la sortie ``release`` passe à ```TRUE``` et la sortie ``stop`` passe à ``FALSE``.
 - Si l'on appuie pendant deux secondes ou plus sur le bouton de la station, la variable ``diCounter`` passe à ``0```.
 
-<br>
+```mermaid
+
+---
+title: Principe VAR_IN_OUT
+---
+
+classDiagram
+    CM_01 o-- ST_StationConveyor
+    CM_02 o-- ST_StationConveyor
+    CM_03 o-- ST_StationConveyor
+    CM_Out o-- ST_StationOutput
+    CM_Drive o-- ST_MotorConveyor
+
+```
+
+---
 
 ## 2) FB_OutStation
 ### URS (User Request Specification)
 - La structure de donnée VAR_IN_OUT est ``ST_OutputConveyor``
 - Ce FB a absolument le même manière que ``FB_Station`` à une exception prêt: la variable ``stop`` active le ``Buzzer``.
 
-<br>
+---
 
 ## 3) FB_Drive
 ### URS (User Request Specification)
@@ -367,7 +387,7 @@ Programmer les différents **Control Modules** en respectant les URS (User Reque
 - Si l'une des variables ``stop`` des 4 stations est ``TRUE``, le convoyeur s'arrête. Sinon il avance dans la direction S1 --> S4.
 
 
-<br>
+---
 
 # Appel des "Control Modules" depuis le programme principal
 

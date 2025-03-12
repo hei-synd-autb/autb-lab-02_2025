@@ -301,12 +301,17 @@ Zum Schreiben --> [Ctrl + F7]
 
 
 ```mermaid
+
+---
+title: EM_Conveyor
+---
+
 classDiagram
-    emConveyor *-- cm01
-    emConveyor *-- cm02
-    emConveyor *-- cm03
-    emConveyor *-- cmOut
-    emConveyor *-- cmDrive
+    EM_Conveyor *-- CM_01
+    EM_Conveyor *-- CM_02
+    EM_Conveyor *-- CM_03
+    EM_Conveyor *-- CM_Out
+    EM_Conveyor *-- CM_Drive
 
 ```
 <figcaption>Objektdiagramm des Förderers</figcaption>
@@ -355,14 +360,29 @@ Programmieren Sie die verschiedenen **Control Modules** unter Beachtung der unte
 - Wird die Taste bButton gedrückt, wird der Ausgang ``release`` auf ```TRUE`` und der Ausgang ``stop`` auf ``FALSE`` gesetzt.
 - Wird die Stationstaste zwei oder mehr Sekunden lang gedrückt, wird die Variable ``diCounter`` auf ``0`` gesetzt.
 
-<br>
+```mermaid
+
+---
+title: Prinzip VAR_IN_OUT
+---
+
+classDiagram
+    CM_01 o-- ST_StationConveyor
+    CM_02 o-- ST_StationConveyor
+    CM_03 o-- ST_StationConveyor
+    CM_Out o-- ST_StationOutput
+    CM_Drive o-- ST_MotorConveyor
+
+```
+
+---
 
 ## 2) FB_OutStation
 ### URS (User Request Specification)
 - Die Datenstruktur VAR_IN_OUT ist ``ST_OutputConveyor``.
 - Diese FB hat die gleiche Funktionsweise wie die ``FB_Station``, mit einer Ausnahme: Die Variable ``stop`` aktiviert den ``Buzzer``.
 
-<br>
+---
 
 ## 3) FB_Drive
 ### URS (User Request Specification)
@@ -370,8 +390,7 @@ Programmieren Sie die verschiedenen **Control Modules** unter Beachtung der unte
 - Dieser FB erhält die 4 Stationen als Parameter, ``VAR_IN_OUT``, sowie die Hardwarestruktur ``ST_MotorConveyor``.
 - Wenn eine der Variablen ``stop`` der 4 Stationen ``TRUE`` ist, stoppt der Förderer. Andernfalls bewegt er sich in die Richtung S1 --> S4.
 
-
-<br>
+---
 
 # Aufruf der „Control Modules“ aus dem Hauptprogramm heraus.
 
