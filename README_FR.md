@@ -88,7 +88,8 @@ classDiagram
         bK_ActivatePositiveDirection: BOOL
         bK_ActivateNegativeDirection: BOOL
     }
-    ST_StationOutput <|-- ST_StationConveyor
+    
+    ST_StationConveyor <|-- ST_StationOutput
 ```
 
 <figcaption> Structures de données du convoyeur <figcaption>
