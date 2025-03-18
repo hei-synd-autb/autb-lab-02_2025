@@ -479,7 +479,7 @@ END_VAR
 diMyLoop := diMyLoop + 1;
 
 // Manage inputs
-FC_GetInput(ioHwInterface := GVL_Abox,
+FC_GetInput(ioHwInterface := GVL_Abox.uaAboxInterface,
             ioPhysicalControl := emConveyor);
 
 // Execute Control Modules
@@ -501,7 +501,7 @@ fbDrive(Enable := NOT testMode,
         stationOut := fbOutStation);		  
 
 // Manage outputs
-FC_SetOutput(ioHwInterface := GVL_Abox,
+FC_SetOutput(ioHwInterface := GVL_Abox.uaAboxInterface,
              ioPhysicalControl := emConveyor);
 
 
